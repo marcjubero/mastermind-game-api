@@ -1,0 +1,52 @@
+{
+    "TestGameController": {
+        "new_game": [
+            {
+                "id": "200: Create new game",
+                "method": "post",
+                "url": "v1/games",
+                "data": {},
+                "status_code": 200,
+                "response_data": {
+                    "game_id": 1
+                }
+            }
+        ],
+        "get_games": [
+            {
+                "id": "200: Get existing games info",
+                "method": "get",
+                "url": "v1/games",
+                "status_code": 200,
+                "response_data": {}
+            }
+        ],
+        "get_single_game": [
+            {
+                "id": "200: Get game info",
+                "method": "get",
+                "url": "v1/games/{game_id}",
+                "url_parameters": {
+                    "game_id": 1
+                },
+                "data": {},
+                "status_code": 200,
+                "response_data": {}
+            }
+        ],
+        "new_guess": [
+            {
+                "id": "200: Post new guess in an existing game",
+                "method": "post",
+                "url": "v1/games/{game_id}/guess",
+                "url_parameters": {
+                    "game_id": 1
+                },
+                "data": {},
+                "status_code": 200,
+                "response_data": {}
+            }
+        ]
+
+    }
+}
