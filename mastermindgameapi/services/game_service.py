@@ -14,4 +14,4 @@ class GameService:
                 secret_cpy[secret_cpy.index(g)] = None
                 whites.append(0)
 
-        return whites if len(blacks) == 0 else (blacks + whites[:-len(blacks)])
+        return whites if len(blacks) == 0 else blacks + whites[:-len(blacks)]
