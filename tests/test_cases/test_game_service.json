@@ -1,0 +1,36 @@
+{
+    "TestGameService": {
+        "eval_guess": [
+            {
+                "id": "Each element match with value and position",
+                "input_secret": [1, 2, 3, 4],
+                "input_guess": [1, 2, 3, 4],
+                "expected": [1, 1, 1, 1]
+            },
+            {
+                "id": "Each element match with value but not the position into the array",
+                "input_secret": [1, 2, 3, 4],
+                "input_guess": [4, 3, 2, 1],
+                "expected": [0, 0, 0, 0]
+            },
+            {
+                "id": "No match",
+                "input_secret": [1, 2, 3, 4],
+                "input_guess": [9, 8, 7, 6],
+                "expected": []
+            },
+            {
+                "id": "Partial match",
+                "input_secret": [1, 2, 3, 4],
+                "input_guess": [1, 4, 2, 9],
+                "expected": [1, 0, 0]
+            },
+            {
+                "id": "Other inputs",
+                "input_secret": [1, 2, 1],
+                "input_guess": [1, 1, 1],
+                "expected": [1, 1]
+            }
+        ]
+    }
+}
