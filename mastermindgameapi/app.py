@@ -7,8 +7,8 @@ from mastermindgameapi.config.config_factory import ConfigFactory
 
 def create_app(config_class=None):
     app = Flask(__name__)
-    env = os.getenv('FLASK_ENV', 'localdev')
-    cfg = config_class if config_class is not None else ConfigFactory.get_config(env_name=env)
+    env = os.getenv('FLASK_ENV', 'local')
+    cfg = ConfigFactory.get_config(env_name=env) if config_class is None else config_class
 
     app.config.from_object(cfg)
     return app
