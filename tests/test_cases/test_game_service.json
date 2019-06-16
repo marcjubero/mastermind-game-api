@@ -24,12 +24,6 @@
                 "input_secret": [1, 2, 3, 4],
                 "input_guess": [1, 4, 2, 9],
                 "expected": [1, 0, 0]
-            },
-            {
-                "id": "Other inputs",
-                "input_secret": [1, 2, 1],
-                "input_guess": [1, 1, 1],
-                "expected": [1, 1]
             }
         ]
     }
