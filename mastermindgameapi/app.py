@@ -1,11 +1,14 @@
 import os
 
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import import_string, find_modules
 
 from mastermindgameapi.config.config_factory import ConfigFactory
 
 APPNAME = 'mastermindgameapi'
+
+db = SQLAlchemy()
 
 
 def register_blueprints(app):
@@ -22,6 +25,16 @@ def register_blueprints(app):
     return None
 
 
+def register_elements(package):
+    """Register additional stuff
+
+    Args:
+        package (str): package name
+    """
+    for name in find_modules('{}.{}'.format(APPNAME, package)):
+        import_string(name)
+
+
 def create_app(config_class=None):
     app = Flask(__name__)
     env = os.getenv('FLASK_ENV', 'local')
@@ -29,7 +42,11 @@ def create_app(config_class=None):
 
     app.config.from_object(cfg)
 
+    db.init_app(app)
     register_blueprints(app=app)
+    register_elements('data')
+
+    db.create_all(app=app)
 
     return app
 
