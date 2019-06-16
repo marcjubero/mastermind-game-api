@@ -3,13 +3,14 @@
 
 
 ### TODOS
-- [ ] Game algorithm
+- [x] Game algorithm
 - [x] Define HTTP Rest API
 - [ ] Implement HTTP Rest API
 - [x] Define DB schema
 - [ ] Create game (given a user request)
 - [ ] Return feedback given a code guess
 - [ ] Check game historic
+- [ ] Game algorithm improvements (types, checks, ...)
 
 
 #### Define HTTP Rest API
