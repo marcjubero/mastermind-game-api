@@ -4,7 +4,9 @@
 
 ### TODOS
 - [x] Game algorithm
-- [ ] Define HTTP Rest API
+- [x] Define HTTP Rest API
+- [ ] Implement HTTP Rest API
+- [ ] Define DB schema
 - [ ] Create game (given a user request)
 - [ ] Return feedback given a code guess
 - [ ] Check game historic
