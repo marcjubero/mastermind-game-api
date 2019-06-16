@@ -40,7 +40,7 @@ class Result:
         return [
             1
             for secret_item, current_guess_item in zip(self._secret.values, self._current.values)
-            if secret_item == current_guess_item
+            if str(secret_item) == str(current_guess_item)
         ]
 
     def _compute_whites(self):
