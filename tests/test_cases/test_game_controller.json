@@ -5,7 +5,14 @@
                 "id": "200: Create new game",
                 "method": "post",
                 "url": "v1/games",
-                "data": {},
+                "data": {
+                    "secret": [
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                },
                 "status_code": 200,
                 "response_data": {
                     "game_id": 1

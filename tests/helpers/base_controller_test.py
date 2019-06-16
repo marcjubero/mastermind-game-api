@@ -39,7 +39,7 @@ class BaseControllerTest:
 
     def _verify_response(self, expected_response_data, response):
         if expected_response_data and response.status_code != 204:
-            assert expected_response_data == json.loads(response.data.decode())
+            assert json.loads(response.data.decode()) == expected_response_data
 
     def _run_standard_test(self, method, url, headers, url_parameters, data, query_string, status_code, response_data,
                            config, app):

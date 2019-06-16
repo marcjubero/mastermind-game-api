@@ -6,4 +6,5 @@ class Game(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     secret = db.Column(db.String, nullable=False)
-    games = db.relationship('Guesses', backref='game', lazy=True)
+
+    guesses = db.relationship('Guess', backref=db.backref('game', lazy=True), lazy=True)

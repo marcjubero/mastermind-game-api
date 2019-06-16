@@ -2,7 +2,7 @@ from os.path import join, dirname, abspath
 
 import pytest
 
-from mastermindgameapi.models.game import Mastermind
+from mastermindgameapi.models.game import Game
 from mastermindgameapi.models.guess import Guess
 from tests.helpers.utils import parametrize_from_json_file
 
@@ -11,7 +11,7 @@ CURRENT_DIR = abspath(dirname(__file__))
 
 class TestGameService:
     def _service(self, secret):
-        return Mastermind(secret)
+        return Game(secret)
 
     @pytest.mark.parametrize(
         **parametrize_from_json_file(
