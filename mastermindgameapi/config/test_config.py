@@ -2,4 +2,4 @@ from mastermindgameapi.config.base_config import BaseConfig
 
 
 class TestConfig(BaseConfig):
-    pass
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///mastermind_test.db'

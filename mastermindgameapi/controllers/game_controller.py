@@ -33,19 +33,46 @@ class GamesController(Resource):
             return make_response(e.args[0], 500)
 
     def get(self):
-        pass
+        serialized = [self._game_repo.dump(g) for g in self._game_repo.all()]
+        response = make_response(json.dumps(serialized), 200)
+        response.headers['Content-Type'] = 'application/json'
+        return response
 
 
 class GameController(Resource):
+
+    def __init__(self) -> None:
+        super().__init__()
+        self._game_repo = GameRepository()
+
     def get(self, game_id):
-        pass
+        game = self._game_repo.first_or_404(**{'id': str(game_id)})
+        response = make_response(json.dumps(self._game_repo.dump(game)))
+        response.headers['Content-Type'] = 'application/json'
+        return response
 
 
 class GameGuessController(Resource):
+    def __init__(self) -> None:
+        super().__init__()
+        self._game_repo = GameRepository()
+        self._guess_repo = GuessRepository()
+
     def post(self, game_id):
-        pass
+        json_data = request.get_json() or {}
+        try:
+            game = self._game_repo.first_or_404(**{'id': str(game_id)})
+            guess = Guess(json_data.get('guess', []))
+
+            self._guess_repo.create(guess, game)
+
+            game_model = Game(secret=Guess(game.secret.split(';')))
+            return make_response(json.dumps({'result': game_model.eval_guess(guess).values}))
+
+        except Exception as e:
+            print(e)
 
 
 api.add_resource(GamesController, '/games')
 api.add_resource(GameController, '/games/<int:game_id>')
-api.add_resource(GameGuessController, '/games/<int:game_id>/guess')
+api.add_resource(GameGuessController, '/games/<int:game_id>/guesses')

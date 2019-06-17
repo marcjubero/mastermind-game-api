@@ -6,7 +6,7 @@ class BaseRepository(ABC):
     __model__ = None
 
     @abstractmethod
-    def create(self, model):
+    def create(self, model, **kwargs):
         pass
 
     @abstractmethod

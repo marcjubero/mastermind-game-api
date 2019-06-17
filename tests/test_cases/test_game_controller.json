@@ -2,20 +2,27 @@
     "TestGameController": {
         "new_game": [
             {
-                "id": "200: Create new game",
+                "id": "201: Create new game",
                 "method": "post",
                 "url": "v1/games",
                 "data": {
                     "secret": [
-                        1,
-                        2,
-                        3,
-                        4
+                        "RED",
+                        "GREEN",
+                        "BLUE",
+                        "YELLOW"
                     ]
                 },
-                "status_code": 200,
+                "status_code": 201,
                 "response_data": {
-                    "game_id": 1
+                    "id": 3,
+                    "secret": [
+                        "RED",
+                        "GREEN",
+                        "BLUE",
+                        "YELLOW"
+                    ],
+                    "guesses": []
                 }
             }
         ],
@@ -25,7 +32,75 @@
                 "method": "get",
                 "url": "v1/games",
                 "status_code": 200,
-                "response_data": {}
+                "response_data": [
+                    {
+                        "id": 1,
+                        "secret": [
+                            "RED",
+                            "GREEN",
+                            "BLUE",
+                            "YELLOW"
+                        ],
+                        "guesses": []
+                    },
+                    {
+                        "id": 2,
+                        "secret": [
+                            "RED",
+                            "GREEN",
+                            "GREEN",
+                            "BLUE"
+                        ],
+                        "guesses": [
+                            {
+                                "id": 1,
+                                "value": [
+                                    "YELLOW",
+                                    "YELLOW",
+                                    "YELLOW",
+                                    "YELLOW"
+                                ]
+                            },
+                            {
+                                "id": 2,
+                                "value": [
+                                    "GREEN",
+                                    "GREEN",
+                                    "GREEN",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 3,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 4,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "secret": [
+                            "RED",
+                            "GREEN",
+                            "BLUE",
+                            "YELLOW"
+                        ],
+                        "guesses": []
+                    }
+                ]
             }
         ],
         "get_single_game": [
@@ -34,26 +109,154 @@
                 "method": "get",
                 "url": "v1/games/{game_id}",
                 "url_parameters": {
-                    "game_id": 1
+                    "game_id": 2
                 },
                 "data": {},
                 "status_code": 200,
-                "response_data": {}
+                "response_data": {
+                    "id": 2,
+                    "secret": [
+                        "RED",
+                        "GREEN",
+                        "GREEN",
+                        "BLUE"
+                    ],
+                    "guesses": [
+                        {
+                            "id": 1,
+                            "value": [
+                                "YELLOW",
+                                "YELLOW",
+                                "YELLOW",
+                                "YELLOW"
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "value": [
+                                "GREEN",
+                                "GREEN",
+                                "GREEN",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        }
+                    ]
+                }
             }
         ],
         "new_guess": [
             {
-                "id": "200: Post new guess in an existing game",
+                "id": "200: Post guess: No results",
                 "method": "post",
-                "url": "v1/games/{game_id}/guess",
+                "url": "v1/games/{game_id}/guesses",
                 "url_parameters": {
-                    "game_id": 1
+                    "game_id": 3
                 },
-                "data": {},
+                "data": {
+                    "guess": [
+                        "PURPLE",
+                        "PURPLE",
+                        "PURPLE",
+                        "PURPLE"
+                    ]
+                },
                 "status_code": 200,
-                "response_data": {}
+                "response_data": {
+                    "result": []
+                }
+            },
+            {
+                "id": "200: Post guess: Match colors but no positions",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 3
+                },
+                "data": {
+                    "guess": [
+                        "YELLOW",
+                        "BLUE",
+                        "GREEN",
+                        "RED"
+                    ]
+                },
+                "status_code": 200,
+                "response_data": {
+                    "result": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "id": "200: Post guess: Mixed result",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 3
+                },
+                "data": {
+                    "guess": [
+                        "RED",
+                        "PURPLE",
+                        "GREEN",
+                        "YELLOW"
+                    ]
+                },
+                "status_code": 200,
+                "response_data": {
+                    "result": [
+                        1,
+                        1,
+                        0
+                    ]
+                }
+            },
+            {
+                "id": "200: Post guess: Full match",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 3
+                },
+                "data": {
+                    "guess": [
+                        "RED",
+                        "GREEN",
+                        "BLUE",
+                        "YELLOW"
+                    ]
+                },
+                "status_code": 200,
+                "response_data": {
+                    "result": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                }
             }
         ]
-
     }
 }

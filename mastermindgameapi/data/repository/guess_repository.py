@@ -17,4 +17,7 @@ class GuessRepository(BaseRepository):
         return g
 
     def dump(self, data: GuessData):
-        pass
+        return {
+            "id": data.id,
+            "value": data.value.split(';')
+        }

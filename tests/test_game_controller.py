@@ -2,10 +2,29 @@ from os.path import join, abspath, dirname
 
 import pytest
 
+from mastermindgameapi.data.game import Game
+from mastermindgameapi.data.guess import Guess
 from tests.helpers.base_controller_test import BaseControllerTest
 from tests.helpers.utils import parametrize_from_json_file
 
 CURRENT_DIR = abspath(dirname(__file__))
+
+
+@pytest.fixture(autouse=True, scope="module")
+def load_base_data(db):
+    datas = [
+        Game(secret='RED;GREEN;BLUE;YELLOW'),
+        Game(secret='RED;GREEN;GREEN;BLUE', guesses=[
+            Guess(value='YELLOW;YELLOW;YELLOW;YELLOW'),
+            Guess(value='GREEN;GREEN;GREEN;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED')
+        ])
+    ]
+
+    db.session.add_all(datas)
+    db.session.commit()
+    db.session.expunge_all()
 
 
 class TestGameController(BaseControllerTest):
