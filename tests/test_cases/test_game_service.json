@@ -3,27 +3,81 @@
         "eval_guess": [
             {
                 "id": "Each element match with value and position",
-                "input_secret": [1, 2, 3, 4],
-                "input_guess": [1, 2, 3, 4],
-                "expected": [1, 1, 1, 1]
+                "input_secret": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ],
+                "input_guess": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ],
+                "expected": [
+                    "BLACK",
+                    "BLACK",
+                    "BLACK",
+                    "BLACK"
+                ]
             },
             {
                 "id": "Each element match with value but not the position into the array",
-                "input_secret": [1, 2, 3, 4],
-                "input_guess": [4, 3, 2, 1],
-                "expected": [0, 0, 0, 0]
+                "input_secret": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ],
+                "input_guess": [
+                    "YELLOW",
+                    "BLUE",
+                    "GREEN",
+                    "RED"
+                ],
+                "expected": [
+                    "WHITE",
+                    "WHITE",
+                    "WHITE",
+                    "WHITE"
+                ]
             },
             {
                 "id": "No match",
-                "input_secret": [1, 2, 3, 4],
-                "input_guess": [9, 8, 7, 6],
+                "input_secret": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ],
+                "input_guess": [
+                    "PURPLE",
+                    "PURPLE",
+                    "PURPLE",
+                    "PURPLE"
+                ],
                 "expected": []
             },
             {
                 "id": "Partial match",
-                "input_secret": [1, 2, 3, 4],
-                "input_guess": [1, 4, 2, 9],
-                "expected": [1, 0, 0]
+                "input_secret": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ],
+                "input_guess": [
+                    "RED",
+                    "YELLOW",
+                    "GREEN",
+                    "PURPLE"
+                ],
+                "expected": [
+                    "BLACK",
+                    "WHITE",
+                    "WHITE"
+                ]
             }
         ]
     }

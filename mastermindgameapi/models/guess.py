@@ -1,4 +1,5 @@
 from mastermindgameapi.config.game_config import GUESS_LENGTH
+from mastermindgameapi.models.colors import ResponseColors
 from mastermindgameapi.models.exceptions import InvalidGuessLength
 
 
@@ -38,7 +39,7 @@ class Result:
 
     def _compute_blacks(self):
         return [
-            1
+            ResponseColors.BLACK.value
             for secret_item, current_guess_item in zip(self._secret.values, self._current.values)
             if str(secret_item) == str(current_guess_item)
         ]
@@ -49,7 +50,7 @@ class Result:
         for guess_item in self._current.values:
             if guess_item in secret_cpy:
                 secret_cpy[secret_cpy.index(guess_item)] = None
-                whites.append(0)
+                whites.append(ResponseColors.WHITE.value)
 
         return whites
 

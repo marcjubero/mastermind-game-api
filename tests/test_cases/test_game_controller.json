@@ -201,10 +201,10 @@
                 "status_code": 200,
                 "response_data": {
                     "result": [
-                        0,
-                        0,
-                        0,
-                        0
+                        "WHITE",
+                        "WHITE",
+                        "WHITE",
+                        "WHITE"
                     ]
                 }
             },
@@ -226,9 +226,9 @@
                 "status_code": 200,
                 "response_data": {
                     "result": [
-                        1,
-                        1,
-                        0
+                        "BLACK",
+                        "BLACK",
+                        "WHITE"
                     ]
                 }
             },
@@ -250,10 +250,10 @@
                 "status_code": 200,
                 "response_data": {
                     "result": [
-                        1,
-                        1,
-                        1,
-                        1
+                        "BLACK",
+                        "BLACK",
+                        "BLACK",
+                        "BLACK"
                     ]
                 }
             }
