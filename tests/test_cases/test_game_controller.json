@@ -187,6 +187,16 @@
                         }
                     ]
                 }
+            },
+            {
+                "id": "404: Game not found",
+                "method": "get",
+                "url": "v1/games/{game_id}",
+                "url_parameters": {
+                    "game_id": 10
+                },
+                "data": {},
+                "status_code": 404
             }
         ],
         "new_guess": [
@@ -283,7 +293,58 @@
                         "BLACK"
                     ]
                 }
+            },
+            {
+                "id": "404: Game not found",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 10
+                },
+                "data": {
+                    "guess": [
+                        "RED",
+                        "GREEN",
+                        "BLUE",
+                        "YELLOW"
+                    ]
+                },
+                "status_code": 404
+            },
+            {
+                "id": "400: Invalid guess color",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 1
+                },
+                "data": {
+                    "guess": [
+                        "RED",
+                        "GREEN",
+                        "TEST",
+                        "YELLOW"
+                    ]
+                },
+                "status_code": 400
+            },
+            {
+                "id": "400: Invalid guess length",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 1
+                },
+                "data": {
+                    "guess": [
+                        "RED",
+                        "GREEN",
+                        "YELLOW"
+                    ]
+                },
+                "status_code": 400
             }
+
         ]
     }
 }
