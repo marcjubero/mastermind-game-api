@@ -9,11 +9,11 @@ class BaseRepository(ABC):
 
     @abstractmethod
     def create(self, model, **kwargs):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def dump(self, model):
-        pass
+        pass  # pragma: no cover
 
     def all(self) -> List[__model__]:
         datas = self.__model__.query.all()
