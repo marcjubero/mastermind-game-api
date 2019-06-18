@@ -8,19 +8,19 @@
             {
                 "id": "Invalid guess length: > 0 & < GUESS_LENGHT",
                 "input_guess": [
-                    1,
-                    2,
-                    1
+                    "RED",
+                    "ORANGE",
+                    "RED"
                 ]
             },
             {
                 "id": "Invalid guess length: > GUESS_LENGHT",
                 "input_guess": [
-                    1,
-                    2,
-                    1,
-                    3,
-                    4,
+                    "RED",
+                    "ORANGE",
+                    "RED",
+                    "YELLOW",
+                    "GREEN",
                     5
                 ]
             }
@@ -29,16 +29,16 @@
             {
                 "id": "Guess creation",
                 "input_guess": [
-                    1,
-                    2,
-                    3,
-                    4
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
                 ],
                 "expected": [
-                    1,
-                    2,
-                    3,
-                    4
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
                 ]
             }
         ]

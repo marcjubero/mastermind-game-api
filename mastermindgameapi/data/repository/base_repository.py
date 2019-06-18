@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List
 
+from mastermindgameapi.data.exceptions import DataNotFoundException
+
 
 class BaseRepository(ABC):
     __model__ = None
@@ -14,9 +16,11 @@ class BaseRepository(ABC):
         pass
 
     def all(self) -> List[__model__]:
-        models_list = self.__model__.query.all()
-        return models_list
+        datas = self.__model__.query.all()
+        return datas
 
-    def first_or_404(self, **filters):
-        model = self.__model__.query.filter_by(**filters).first_or_404()
-        return model
+    def first_or_raise(self, **filters) -> __model__:
+        data = self.__model__.query.filter_by(**filters).first()
+        if data is None:
+            raise DataNotFoundException('Data not found for {0}'.format(filters))
+        return data

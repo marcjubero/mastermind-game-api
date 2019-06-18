@@ -9,14 +9,14 @@ from tests.helpers.utils import parametrize_from_json_file
 CURRENT_DIR = abspath(dirname(__file__))
 
 
-class TestGameService:
+class TestGameModel:
     def _service(self, secret):
         return Game(secret)
 
     @pytest.mark.parametrize(
         **parametrize_from_json_file(
             'input_secret, input_guess, expected',
-            fpath=join(CURRENT_DIR, 'test_cases/test_game_service.json'),
+            fpath=join(CURRENT_DIR, 'test_cases/test_game_model.json'),
             test_class_name='TestGameService',
             test_class_method='eval_guess'
         ))

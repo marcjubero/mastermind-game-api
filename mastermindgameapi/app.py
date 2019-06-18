@@ -54,4 +54,4 @@ def create_app(config_class=None):
 app = create_app()
 
 if __name__ == '__main__':
-    app.run(port=os.getenv('FLASK_PORT', 8080))
+    app.run(port=os.getenv('FLASK_PORT', 8080))  # pragma: no cover

@@ -1,8 +1,10 @@
 import json
 
-from flask import Blueprint, request, make_response
+from flask import Blueprint, request, make_response, abort
 from flask_restful import Api, Resource
+from werkzeug.exceptions import HTTPException
 
+from mastermindgameapi.config.game_config import MAX_TURNS
 from mastermindgameapi.data.repository.game_repository import GameRepository
 from mastermindgameapi.data.repository.guess_repository import GuessRepository
 from mastermindgameapi.models.exceptions import InvalidGuessLength
@@ -29,6 +31,8 @@ class GamesController(Resource):
             return response
         except InvalidGuessLength as e:
             return make_response(e.args[0], 400)
+        except KeyError as e:
+            return make_response('Invalid peg color:{0} '.format(e.args[0]), 400)
         except Exception as e:
             return make_response(e.args[0], 500)
 
@@ -46,7 +50,7 @@ class GameController(Resource):
         self._game_repo = GameRepository()
 
     def get(self, game_id):
-        game = self._game_repo.first_or_404(**{'id': str(game_id)})
+        game = self._game_repo.first_or_raise(**{'id': str(game_id)})
         response = make_response(json.dumps(self._game_repo.dump(game)))
         response.headers['Content-Type'] = 'application/json'
         return response
@@ -61,15 +65,19 @@ class GameGuessController(Resource):
     def post(self, game_id):
         json_data = request.get_json() or {}
         try:
-            game = self._game_repo.first_or_404(**{'id': str(game_id)})
+            game_data = self._game_repo.first_or_raise(**{'id': str(game_id)})
+
+            # if len(game_data.guesses) >= MAX_TURNS:
+            #     abort(400, 'Finished game')
+
             guess = Guess(json_data.get('guess', []))
+            self._guess_repo.create(guess, game_data)
 
-            self._guess_repo.create(guess, game)
-
-            game_model = Game(secret=Guess(game.secret.split(';')))
+            game_model = Game(secret=Guess(game_data.secret.split(';')))
             return make_response(json.dumps({'result': game_model.eval_guess(guess).values}))
 
-        except Exception as e:
+        except HTTPException as e:
+            return make_response()
             print(e)
 
 

@@ -52,10 +52,10 @@
                     "YELLOW"
                 ],
                 "input_guess": [
-                    "PURPLE",
-                    "PURPLE",
-                    "PURPLE",
-                    "PURPLE"
+                    "INDIGO",
+                    "INDIGO",
+                    "INDIGO",
+                    "INDIGO"
                 ],
                 "expected": []
             },
@@ -71,7 +71,7 @@
                     "RED",
                     "YELLOW",
                     "GREEN",
-                    "PURPLE"
+                    "INDIGO"
                 ],
                 "expected": [
                     "BLACK",

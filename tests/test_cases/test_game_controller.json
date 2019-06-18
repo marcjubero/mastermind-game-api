@@ -24,6 +24,33 @@
                     ],
                     "guesses": []
                 }
+            },
+            {
+                "id": "400: Invalid game input",
+                "method": "post",
+                "url": "v1/games",
+                "data": {
+                    "secret": [
+                        "RED",
+                        "GREEN",
+                        "BLUE",
+                        "TEST"
+                    ]
+                },
+                "status_code": 400
+            },
+            {
+                "id": "400: Invalid game input length",
+                "method": "post",
+                "url": "v1/games",
+                "data": {
+                    "secret": [
+                        "RED",
+                        "GREEN",
+                        "BLUE"
+                    ]
+                },
+                "status_code": 400
             }
         ],
         "get_games": [
@@ -172,10 +199,10 @@
                 },
                 "data": {
                     "guess": [
-                        "PURPLE",
-                        "PURPLE",
-                        "PURPLE",
-                        "PURPLE"
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
                     ]
                 },
                 "status_code": 200,
@@ -218,7 +245,7 @@
                 "data": {
                     "guess": [
                         "RED",
-                        "PURPLE",
+                        "VIOLET",
                         "GREEN",
                         "YELLOW"
                     ]

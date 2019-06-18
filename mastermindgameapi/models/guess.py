@@ -1,5 +1,5 @@
 from mastermindgameapi.config.game_config import GUESS_LENGTH
-from mastermindgameapi.models.colors import ResponseColors
+from mastermindgameapi.models.colors import KeyColor, PegColor
 from mastermindgameapi.models.exceptions import InvalidGuessLength
 
 
@@ -9,11 +9,11 @@ class Guess:
         # TODO 2019-06-16 use Enum for colors
         if len(values) != GUESS_LENGTH:
             raise InvalidGuessLength()
-        self._values = values
+        self._values = [PegColor[v] for v in values]
 
     @property
     def values(self):
-        return self._values
+        return [v.value for v in self._values]
 
     def eval(self, secret: 'Guess'):
         return Result(current=self, secret=secret)
@@ -39,7 +39,7 @@ class Result:
 
     def _compute_blacks(self):
         return [
-            ResponseColors.BLACK.value
+            KeyColor.BLACK.value
             for secret_item, current_guess_item in zip(self._secret.values, self._current.values)
             if str(secret_item) == str(current_guess_item)
         ]
@@ -50,7 +50,7 @@ class Result:
         for guess_item in self._current.values:
             if guess_item in secret_cpy:
                 secret_cpy[secret_cpy.index(guess_item)] = None
-                whites.append(ResponseColors.WHITE.value)
+                whites.append(KeyColor.WHITE.value)
 
         return whites
 
