@@ -8,11 +8,11 @@ from mastermindgameapi.models.guess import Guess as GuessModel
 class GuessRepository(BaseRepository):
     __model__ = GuessData
 
-    def create(self, model: GuessModel, game: GameData):
+    def create(self, model: GuessModel, game: GameData, **kwargs):
         g = GuessData(value=';'.join(str(x) for x in model.values), game=game)
 
         db.session.add(g)
-        db.session.commit()
+        self.save()
 
         return g
 

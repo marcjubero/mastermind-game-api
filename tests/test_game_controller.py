@@ -15,8 +15,16 @@ def load_base_data(db):
     datas = [
         Game(secret='RED;GREEN;BLUE;YELLOW'),
         Game(secret='RED;GREEN;GREEN;BLUE', guesses=[
-            Guess(value='YELLOW;YELLOW;YELLOW;YELLOW'),
-            Guess(value='GREEN;GREEN;GREEN;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
+            Guess(value='YELLOW;GREEN;YELLOW;RED'),
             Guess(value='YELLOW;GREEN;YELLOW;RED'),
             Guess(value='YELLOW;GREEN;YELLOW;RED')
         ])

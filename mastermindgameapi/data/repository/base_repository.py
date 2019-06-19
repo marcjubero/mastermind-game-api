@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
+from mastermindgameapi.app import db
 from mastermindgameapi.data.exceptions import DataNotFoundException
 
 
@@ -14,6 +15,9 @@ class BaseRepository(ABC):
     @abstractmethod
     def dump(self, model):
         pass  # pragma: no cover
+
+    def save(self):
+        db.session.commit()
 
     def all(self) -> List[__model__]:
         datas = self.__model__.query.all()

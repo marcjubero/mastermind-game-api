@@ -1,3 +1,4 @@
+from mastermindgameapi.data.game import Game as GameData
 from mastermindgameapi.models.guess import Guess, Result
 
 
@@ -11,3 +12,7 @@ class Game:
 
     def eval_guess(self, guess: Guess) -> Result:
         return guess.eval(self._secret)
+
+    @classmethod
+    def from_data(cls, data: GameData):
+        return cls(secret=Guess(values=data.secret.split(';')))

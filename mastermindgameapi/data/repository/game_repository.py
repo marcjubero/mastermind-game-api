@@ -12,10 +12,10 @@ class GameRepository(BaseRepository):
         super().__init__()
         self._guess_repo = GuessRepository()
 
-    def create(self, model: GameModel) -> GameData:
+    def create(self, model: GameModel, **kwargs) -> GameData:
         m = GameData(secret=';'.join(str(x) for x in model.secret_raw_values))
         db.session.add(m)
-        db.session.commit()
+        self.save()
 
         return m
 

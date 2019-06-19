@@ -83,17 +83,17 @@
                                 "id": 1,
                                 "value": [
                                     "YELLOW",
+                                    "GREEN",
                                     "YELLOW",
-                                    "YELLOW",
-                                    "YELLOW"
+                                    "RED"
                                 ]
                             },
                             {
                                 "id": 2,
                                 "value": [
+                                    "YELLOW",
                                     "GREEN",
-                                    "GREEN",
-                                    "GREEN",
+                                    "YELLOW",
                                     "RED"
                                 ]
                             },
@@ -108,6 +108,78 @@
                             },
                             {
                                 "id": 4,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 5,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 6,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 7,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 8,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 9,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 10,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 11,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ]
+                            },
+                            {
+                                "id": 12,
                                 "value": [
                                     "YELLOW",
                                     "GREEN",
@@ -153,17 +225,17 @@
                             "id": 1,
                             "value": [
                                 "YELLOW",
+                                "GREEN",
                                 "YELLOW",
-                                "YELLOW",
-                                "YELLOW"
+                                "RED"
                             ]
                         },
                         {
                             "id": 2,
                             "value": [
+                                "YELLOW",
                                 "GREEN",
-                                "GREEN",
-                                "GREEN",
+                                "YELLOW",
                                 "RED"
                             ]
                         },
@@ -178,6 +250,78 @@
                         },
                         {
                             "id": 4,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "value": [
+                                "YELLOW",
+                                "GREEN",
+                                "YELLOW",
+                                "RED"
+                            ]
+                        },
+                        {
+                            "id": 12,
                             "value": [
                                 "YELLOW",
                                 "GREEN",
@@ -343,8 +487,41 @@
                     ]
                 },
                 "status_code": 400
+            },
+            {
+                "id": "400: Trying to post in already guessed game",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 3
+                },
+                "data": {
+                    "guess": [
+                        "RED",
+                        "GREEN",
+                        "BLUE",
+                        "YELLOW"
+                    ]
+                },
+                "status_code": 400
+            },
+            {
+                "id": "400: Trying to post in already finished game (no more turns to play)",
+                "method": "post",
+                "url": "v1/games/{game_id}/guesses",
+                "url_parameters": {
+                    "game_id": 2
+                },
+                "data": {
+                    "guess": [
+                        "RED",
+                        "GREEN",
+                        "BLUE",
+                        "YELLOW"
+                    ]
+                },
+                "status_code": 400
             }
-
         ]
     }
 }

@@ -1,4 +1,5 @@
 from mastermindgameapi.config.game_config import GUESS_LENGTH
+from mastermindgameapi.data.guess import Guess as GuessData
 from mastermindgameapi.models.colors import KeyColor, PegColor
 from mastermindgameapi.models.exceptions import InvalidGuessLength
 
@@ -11,6 +12,9 @@ class Guess:
             raise InvalidGuessLength()
         self._values = [PegColor[v] for v in values]
 
+    def __eq__(self, other):
+        return self.values == other.values
+
     @property
     def values(self):
         return [v.value for v in self._values]
@@ -18,8 +22,9 @@ class Guess:
     def eval(self, secret: 'Guess'):
         return Result(current=self, secret=secret)
 
-    def __eq__(self, other):
-        return self.values == other.values
+    @classmethod
+    def from_data(cls, data: GuessData):
+        return cls(values=data.value.split(';'))
 
 
 class Result:
