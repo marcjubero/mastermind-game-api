@@ -79,6 +79,40 @@
                     "WHITE"
                 ]
             }
+        ],
+        "secret_raw_values": [
+            {
+                "id": "Get game secret values",
+                "input_secret": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ],
+                "expected": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ]
+            }
+        ],
+        "from_data": [
+            {
+                "id": "Create Game model obj from Game data obj",
+                "input_secret": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ],
+                "expected": [
+                    "RED",
+                    "GREEN",
+                    "BLUE",
+                    "YELLOW"
+                ]
+            }
         ]
     }
 }

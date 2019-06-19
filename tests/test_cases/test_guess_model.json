@@ -41,6 +41,40 @@
                     "GREEN"
                 ]
             }
+        ],
+        "values": [
+            {
+                "id": "Get values",
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "VIOLET",
+                    "INDIGO"
+                ],
+                "expected": [
+                    "RED",
+                    "ORANGE",
+                    "VIOLET",
+                    "INDIGO"
+                ]
+            }
+        ],
+        "eval": [
+            {
+                "id": "Test eval method returns Result object",
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "secret": [
+                    "RED",
+                    "ORANGE",
+                    "VIOLET",
+                    "INDIGO"
+                ]
+            }
         ]
     }
 }

@@ -1,0 +1,119 @@
+{
+    "TestResultModel": {
+        "values": [
+            {
+                "id": "No match",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "input_guess": [
+                    "VIOLET",
+                    "VIOLET",
+                    "VIOLET",
+                    "VIOLET"
+                ],
+                "expected": [
+                ]
+            },
+            {
+                "id": "Partial match",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "VIOLET",
+                    "YELLOW"
+                ],
+                "expected": [
+                    "BLACK",
+                    "BLACK",
+                    "WHITE"
+                ]
+            },
+            {
+                "id": "Match colors but not the position",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "input_guess": [
+                    "GREEN",
+                    "YELLOW",
+                    "ORANGE",
+                    "RED"
+                ],
+                "expected": [
+                    "WHITE",
+                    "WHITE",
+                    "WHITE",
+                    "WHITE"
+                ]
+            },
+            {
+                "id": "Complete match",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "RED",
+                    "YELLOW"
+                ],
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "RED",
+                    "YELLOW"
+                ],
+                "expected": [
+                    "BLACK",
+                    "BLACK",
+                    "BLACK",
+                    "BLACK"
+                ]
+            }
+        ],
+        "guessed": [
+            {
+                "id": "Guess creation",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "expected": true
+            },
+            {
+                "id": "Guess creation",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "INDIGO",
+                    "VIOLET"
+                ],
+                "expected": false
+            }
+        ]
+    }
+}

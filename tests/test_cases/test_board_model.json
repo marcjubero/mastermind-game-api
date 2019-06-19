@@ -1,0 +1,190 @@
+{
+    "TestBoardModel": {
+        "new_turn": [
+            {
+                "id": "Partial match",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "VIOLET",
+                    "YELLOW"
+                ],
+                "expected": [
+                    "BLACK",
+                    "BLACK",
+                    "WHITE"
+                ]
+            },
+            {
+                "id": "Match colors but not the position",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "YELLOW",
+                    "GREEN"
+                ],
+                "input_guess": [
+                    "GREEN",
+                    "YELLOW",
+                    "ORANGE",
+                    "RED"
+                ],
+                "expected": [
+                    "WHITE",
+                    "WHITE",
+                    "WHITE",
+                    "WHITE"
+                ]
+            },
+            {
+                "id": "Complete match",
+                "input_secret": [
+                    "RED",
+                    "ORANGE",
+                    "RED",
+                    "YELLOW"
+                ],
+                "input_guess": [
+                    "RED",
+                    "ORANGE",
+                    "RED",
+                    "YELLOW"
+                ],
+                "expected": [
+                    "BLACK",
+                    "BLACK",
+                    "BLACK",
+                    "BLACK"
+                ]
+            }
+        ],
+        "new_turn_raise": [
+            {
+                "id": "raise finished game exc",
+                "input_secret": [
+                    "RED",
+                    "INDIGO",
+                    "VIOLET",
+                    "YELLOW"
+                ],
+                "input_old_guesses": [
+                    [
+                        "VIOLET",
+                        "RED",
+                        "INDIGO",
+                        "GREEN"
+                    ],
+                    [
+                        "RED",
+                        "INDIGO",
+                        "VIOLET",
+                        "YELLOW"
+                    ]
+                ],
+                "input_new_guess": [
+                    "RED",
+                    "INDIGO",
+                    "VIOLET",
+                    "YELLOW"
+                ],
+                "expected_msg": "The color code was discovered on turn 2"
+            },
+            {
+                "id": "raise no more turns exception",
+                "input_secret": [
+                    "RED",
+                    "INDIGO",
+                    "VIOLET",
+                    "YELLOW"
+                ],
+                "input_old_guesses": [
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ],
+                    [
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET",
+                        "VIOLET"
+                    ]
+                ],
+                "input_new_guess": [
+                    "VIOLET",
+                    "VIOLET",
+                    "VIOLET",
+                    "VIOLET"
+                ],
+                "expected_msg": "Max number of turns (12) reached"
+            }
+        ]
+    }
+}

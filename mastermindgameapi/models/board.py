@@ -5,7 +5,7 @@ from mastermindgameapi.models.guess import Guess
 
 
 class Board:
-    def __init__(self, game: Game = None, turns: list = None):
+    def __init__(self, game: Game, turns: list):
         self._game = game
         self._turns = turns
 

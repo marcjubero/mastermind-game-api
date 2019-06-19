@@ -1,13 +1,10 @@
 from mastermindgameapi.config.game_config import GUESS_LENGTH
-from mastermindgameapi.data.guess import Guess as GuessData
 from mastermindgameapi.models.colors import KeyColor, PegColor
 from mastermindgameapi.models.exceptions import InvalidGuessLength
 
 
 class Guess:
     def __init__(self, values: list) -> None:
-        # TODO 2019-06-16 check input array data type
-        # TODO 2019-06-16 use Enum for colors
         if len(values) != GUESS_LENGTH:
             raise InvalidGuessLength()
         self._values = [PegColor[v] for v in values]
@@ -21,10 +18,6 @@ class Guess:
 
     def eval(self, secret: 'Guess'):
         return Result(current=self, secret=secret)
-
-    @classmethod
-    def from_data(cls, data: GuessData):
-        return cls(values=data.value.split(';'))
 
 
 class Result:
