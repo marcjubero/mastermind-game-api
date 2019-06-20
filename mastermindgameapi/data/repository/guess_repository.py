@@ -3,6 +3,7 @@ from mastermindgameapi.data.game import Game as GameData
 from mastermindgameapi.data.guess import Guess as GuessData
 from mastermindgameapi.data.repository.base_repository import BaseRepository
 from mastermindgameapi.models.guess import Guess as GuessModel
+from mastermindgameapi.models.game import Game as GameModel
 
 
 class GuessRepository(BaseRepository):
@@ -17,7 +18,9 @@ class GuessRepository(BaseRepository):
         return g
 
     def dump(self, data: GuessData):
+        guess_value = data.value.split(';')
         return {
             "id": data.id,
-            "value": data.value.split(';')
+            "value": guess_value,
+            "result": GameModel.from_data(data.game).eval_guess(GuessModel(guess_value)).values
         }
