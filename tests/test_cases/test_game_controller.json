@@ -4,7 +4,7 @@
             {
                 "id": "201: Create new game",
                 "method": "post",
-                "url": "v1/games",
+                "url": "v1/board/games",
                 "data": {
                     "secret": [
                         "RED",
@@ -28,7 +28,7 @@
             {
                 "id": "400: Invalid game input",
                 "method": "post",
-                "url": "v1/games",
+                "url": "v1/board/games",
                 "data": {
                     "secret": [
                         "RED",
@@ -42,7 +42,7 @@
             {
                 "id": "400: Invalid game input length",
                 "method": "post",
-                "url": "v1/games",
+                "url": "v1/board/games",
                 "data": {
                     "secret": [
                         "RED",
@@ -57,7 +57,7 @@
             {
                 "id": "200: Get existing games info",
                 "method": "get",
-                "url": "v1/games",
+                "url": "v1/board/games",
                 "status_code": 200,
                 "response_data": [
                     {
@@ -254,7 +254,7 @@
             {
                 "id": "200: Get game info",
                 "method": "get",
-                "url": "v1/games/{game_id}",
+                "url": "v1/board/games/{game_id}",
                 "url_parameters": {
                     "game_id": 2
                 },
@@ -431,7 +431,7 @@
             {
                 "id": "404: Game not found",
                 "method": "get",
-                "url": "v1/games/{game_id}",
+                "url": "v1/board/games/{game_id}",
                 "url_parameters": {
                     "game_id": 10
                 },
@@ -443,7 +443,7 @@
             {
                 "id": "200: Post guess: No results",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 3
                 },
@@ -463,7 +463,7 @@
             {
                 "id": "200: Post guess: Match colors but no positions",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 3
                 },
@@ -488,7 +488,7 @@
             {
                 "id": "200: Post guess: Mixed result",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 3
                 },
@@ -512,7 +512,7 @@
             {
                 "id": "200: Post guess: Full match",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 3
                 },
@@ -537,7 +537,7 @@
             {
                 "id": "404: Game not found",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 10
                 },
@@ -554,7 +554,7 @@
             {
                 "id": "400: Invalid guess color",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 1
                 },
@@ -571,7 +571,7 @@
             {
                 "id": "400: Invalid guess length",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 1
                 },
@@ -587,7 +587,7 @@
             {
                 "id": "400: Trying to post in already guessed game",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 3
                 },
@@ -604,7 +604,7 @@
             {
                 "id": "400: Trying to post in already finished game (no more turns to play)",
                 "method": "post",
-                "url": "v1/games/{game_id}/guesses",
+                "url": "v1/board/games/{game_id}/guesses",
                 "url_parameters": {
                     "game_id": 2
                 },

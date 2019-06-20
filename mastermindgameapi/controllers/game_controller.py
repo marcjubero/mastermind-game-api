@@ -15,6 +15,19 @@ bp = Blueprint('game', __name__)
 api = Api(bp)
 
 
+class BoardController(Resource):
+    def __init__(self) -> None:
+        super().__init__()
+        self._game_repo = GameRepository()
+
+    def get(self):
+        serialized = [self._game_repo.dump(g) for g in self._game_repo.all()]
+        response_data = (json.dumps(serialized), 200) if len(serialized) else ('', 204)
+        response = make_response(response_data[0], response_data[1])
+        response.headers['Content-Type'] = 'application/json'
+        return response
+
+
 class GamesController(Resource):
     def __init__(self) -> None:
         super().__init__()
@@ -35,13 +48,6 @@ class GamesController(Resource):
             return make_response('{0} is not a valid color'.format(e.args[0]), 400)
         except Exception as e:
             return make_response(e.args[0], 500)
-
-    def get(self):
-        serialized = [self._game_repo.dump(g) for g in self._game_repo.all()]
-        response_data = (json.dumps(serialized), 200) if len(serialized) else ('', 204)
-        response = make_response(response_data[0], response_data[1])
-        response.headers['Content-Type'] = 'application/json'
-        return response
 
 
 class GameController(Resource):
@@ -93,6 +99,7 @@ class GameGuessController(Resource):
             return make_response(e.args[0], 500)
 
 
-api.add_resource(GamesController, '/games')
-api.add_resource(GameController, '/games/<int:game_id>')
-api.add_resource(GameGuessController, '/games/<int:game_id>/guesses')
+api.add_resource(BoardController, '/board')
+api.add_resource(GamesController, '/board/games')
+api.add_resource(GameController, '/board/games/<int:game_id>')
+api.add_resource(GameGuessController, '/board/games/<int:game_id>/guesses')

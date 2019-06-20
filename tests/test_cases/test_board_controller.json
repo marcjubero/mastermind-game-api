@@ -1,0 +1,191 @@
+{
+    "TestBoardController": {
+        "get_games_historic": [
+            {
+                "id": "200: Get existing games info",
+                "method": "get",
+                "url": "v1/board",
+                "status_code": 204,
+                "response_data": [
+                    {
+                        "id": 1,
+                        "secret": [
+                            "RED",
+                            "GREEN",
+                            "BLUE",
+                            "YELLOW"
+                        ],
+                        "guesses": []
+                    },
+                    {
+                        "id": 2,
+                        "secret": [
+                            "RED",
+                            "GREEN",
+                            "GREEN",
+                            "BLUE"
+                        ],
+                        "guesses": [
+                            {
+                                "id": 1,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 2,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 3,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 4,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 5,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 6,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 7,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 8,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 9,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 10,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 11,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            },
+                            {
+                                "id": 12,
+                                "value": [
+                                    "YELLOW",
+                                    "GREEN",
+                                    "YELLOW",
+                                    "RED"
+                                ],
+                                "result": [
+                                    "BLACK",
+                                    "WHITE"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

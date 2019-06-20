@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "53a53997-7e5f-4ddb-8585-0863e32de110",
+		"name": "Mastermind Game API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{host}}{{port}}/v1/board/games",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": [\"VIOLET\", \"BLUE\", \"GREEN\", \"YELLOW\"]\n}"
+				},
+				"url": {
+					"raw": "{{host}}{{port}}/v1/board/games",
+					"host": [
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"v1",
+						"board",
+						"games"
+					]
+				},
+				"description": "Create new game"
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}{{port}}/v1/board",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}{{port}}/v1/board",
+					"host": [
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"v1",
+						"board"
+					]
+				},
+				"description": "Get games history"
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}{{port}}/v1/board/games/{{game_id}}/guesses",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"guess\": [\"VIOLET\", \"BLUE\", \"GREEN\", \"YELLOW\"]\n}"
+				},
+				"url": {
+					"raw": "{{host}}{{port}}/v1/board/games/{{game_id}}/guesses",
+					"host": [
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"v1",
+						"board",
+						"games",
+						"{{game_id}}",
+						"guesses"
+					]
+				},
+				"description": "Post new guess to an existing game"
+			},
+			"response": []
+		},
+		{
+			"name": "{{host}}{{port}}/v1/board/games/{{game_id}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}{{port}}/v1/board/games/{{game_id}}",
+					"host": [
+						"{{host}}{{port}}"
+					],
+					"path": [
+						"v1",
+						"board",
+						"games",
+						"{{game_id}}"
+					]
+				},
+				"description": "Get game info"
+			},
+			"response": []
+		}
+	]
+}
