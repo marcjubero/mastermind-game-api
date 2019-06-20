@@ -14,9 +14,9 @@
 
 
 #### Define HTTP Rest API
-*All responses are json formatted*
+**All responses are json formatted**
 
-*All resources, in case of server side error, return HTTP 500: Something went terribly wrong on server side 
+**All resources, in case of server side error, return HTTP 500: Something went terribly wrong on server side**
 
 * @GET /board - Games historic 
   * 200 - OK
