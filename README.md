@@ -2,6 +2,14 @@
 
 ### Installation
 Use the Dockerfile provided in order to the API without use any virtual environments nor dependency management.
+To do so, use the following commands:
+```bash
+$ docker build -t mastermindgameapi:latest .
+```
+and
+```bash
+$ docker run -p 5000:5000 mastermindgameapi:latest 
+```
 
 ### Before start playing, some considerations:
 * A game finishes when:
